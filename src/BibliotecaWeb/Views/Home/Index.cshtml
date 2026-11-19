@@ -1,0 +1,27 @@
+@model PainelViewModel
+@{ ViewData["Title"] = "Painel"; }
+<p class="sobretitulo">GESTÃO DE BIBLIOTECA E EMPRÉSTIMOS</p>
+<h1>A biblioteca, organizada</h1>
+<p class="introducao">Consulte o catálogo, acompanhe os empréstimos e registe as devoluções.</p>
+<div class="resumo">
+    <div><strong>@Model.Livros</strong><span>livros no catálogo</span></div>
+    <div><strong>@Model.Leitores</strong><span>leitores registados</span></div>
+    <div><strong>@Model.Ativos</strong><span>empréstimos ativos</span></div>
+    <div><strong>@Model.Atrasos.Count</strong><span>empréstimos em atraso</span></div>
+</div>
+<div class="acoes">
+    <a class="botao" asp-controller="Emprestimos" asp-action="Criar">Registar empréstimo</a>
+    <a class="botao secundario" asp-controller="Livros" asp-action="Index">Consultar catálogo</a>
+</div>
+<section>
+    <div class="cabecalho"><h2>Devoluções em atraso</h2><a asp-controller="Emprestimos" asp-action="Atrasos">Consultar todos os atrasos</a></div>
+    @if (Model.Atrasos.Count == 0) { <p>Não existem empréstimos em atraso.</p> }
+    else
+    {
+        <div class="tabela"><table>
+            <thead><tr><th>Livro</th><th>Leitor</th><th>Data prevista</th><th>Ação</th></tr></thead>
+            <tbody>@foreach (var e in Model.Atrasos)
+            { <tr><td>@e.Livro.Titulo</td><td>@e.Leitor.Nome</td><td>@e.DataPrevista.ToString("dd/MM/yyyy")</td><td><a asp-controller="Emprestimos" asp-action="Devolver" asp-route-id="@e.Id">Registar devolução</a></td></tr> }</tbody>
+        </table></div>
+    }
+</section>

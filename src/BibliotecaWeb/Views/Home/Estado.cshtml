@@ -1,0 +1,9 @@
+@model int
+@{ ViewData["Title"] = "Pedido não concluído"; }
+<p class="sobretitulo">ERRO @Model</p>
+<h1>Não foi possível concluir o pedido</h1>
+@if (Model == 404) { <p>A página ou o registo que procura não existe.</p> }
+else if (Model == 400) { <p>O pedido não é válido ou o formulário expirou. Abra novamente a página antes de submeter.</p> }
+else if (Model == 405) { <p>Esta operação deve ser realizada através do formulário correspondente.</p> }
+else { <p>Ocorreu um erro. Regresse ao painel e tente novamente.</p> }
+<a class="botao" asp-controller="Home" asp-action="Index">Voltar ao painel</a>

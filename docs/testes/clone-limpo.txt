@@ -1,0 +1,19 @@
+Verificação real em 19/11/2026
+
+Origem: clone Git local novo, sem bin, obj, App_Data ou base de dados.
+Comando: dotnet run --project src/BibliotecaWeb --no-launch-profile --urls http://127.0.0.1:5083
+Resultado: aplicação iniciada; migration aplicada automaticamente.
+
+GET /                         HTTP 200; título do painel presente
+GET /Livros                   HTTP 200; O Meu Primeiro Projeto MVC presente
+GET /Emprestimos/Atrasos       HTTP 200; título da consulta presente
+
+Consulta SQLite após a primeira execução:
+Livros: 5
+Leitores: 5
+Emprestimos: 5
+PRAGMA foreign_key_check: nenhuma violação
+
+O processo do clone de verificação foi parado após estes controlos.
+A configuração de imagem do Codespaces foi confirmada no registo oficial MCR
+(manifesto OCI disponível); o arranque num Codespace remoto não foi testado.

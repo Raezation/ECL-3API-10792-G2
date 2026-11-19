@@ -1,0 +1,5 @@
+@model Leitor
+@{ ViewData["Title"] = "Apagar leitor"; }
+<h1>Apagar leitor</h1><p>Pretende apagar <strong>@Model.Nome</strong> (@Model.Numero)?</p>
+<p>Leitores com histórico de empréstimos não podem ser apagados.</p>
+<form asp-action="Apagar" asp-route-id="@Model.Id" method="post" class="acoes"><button class="perigo" type="submit">Confirmar eliminação</button><a asp-action="Index">Cancelar</a></form>

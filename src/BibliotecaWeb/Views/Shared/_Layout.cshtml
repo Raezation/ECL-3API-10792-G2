@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] · Biblioteca Escolar</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+<a class="saltar" href="#conteudo">Saltar para o conteúdo</a>
+<header>
+    <div class="topo">
+        <a class="marca" asp-controller="Home" asp-action="Index">Biblioteca Escolar</a>
+        <span>Grupo 2 · Jorge e Israel</span>
+    </div>
+    <nav aria-label="Navegação principal">
+        <a asp-controller="Home" asp-action="Index">Painel</a>
+        <a asp-controller="Livros" asp-action="Index">Catálogo</a>
+        <a asp-controller="Leitores" asp-action="Index">Leitores</a>
+        <a asp-controller="Emprestimos" asp-action="Index">Empréstimos</a>
+        <a asp-controller="Emprestimos" asp-action="Atrasos">Atrasos</a>
+    </nav>
+</header>
+<main id="conteudo">
+    @if (TempData["Sucesso"] is string sucesso) { <div class="mensagem sucesso" role="status">@sucesso</div> }
+    @if (TempData["Erro"] is string erro) { <div class="mensagem erro" role="alert">@erro</div> }
+    @RenderBody()
+</main>
+<footer>Escola do Comércio de Lisboa · 3.º API · UFCD 10792 · Gestão de Biblioteca e Empréstimos</footer>
+</body>
+</html>

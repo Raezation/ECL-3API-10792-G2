@@ -1,0 +1,19 @@
+@model List<Emprestimo>
+@{ ViewData["Title"] = "Empréstimos"; DateTime hoje = ViewBag.Hoje; bool apenasAtivos = ViewBag.ApenasAtivos; }
+<div class="cabecalho"><div><p class="sobretitulo">CIRCULAÇÃO DE LIVROS</p><h1>Empréstimos</h1></div><a class="botao" asp-action="Criar">Novo empréstimo</a></div>
+<div class="acoes"><a asp-action="Index">Todos</a><a asp-action="Index" asp-route-apenasAtivos="true">Apenas ativos</a><a asp-action="Atrasos">Em atraso</a></div>
+<p>@Model.Count empréstimo(s) @(apenasAtivos ? "ativo(s)" : "registado(s)").</p>
+@if (Model.Count == 0) { <p>Não existem empréstimos para apresentar.</p> }
+else
+{
+<div class="tabela"><table><thead><tr><th>Livro / Leitor</th><th>Início</th><th>Data prevista</th><th>Estado</th><th>Ação</th></tr></thead><tbody>
+@foreach (var e in Model)
+{
+    <tr><td><strong>@e.Livro.Titulo</strong><small>@e.Leitor.Numero · @e.Leitor.Nome</small></td><td>@e.DataInicio.ToString("dd/MM/yyyy")</td><td>@e.DataPrevista.ToString("dd/MM/yyyy")</td><td>
+    @if (e.DataDevolucao.HasValue) { <span class="estado">Devolvido</span><small>@e.DataDevolucao.Value.ToString("dd/MM/yyyy")</small> }
+    else if (e.DataPrevista < hoje) { <span class="estado alerta">Em atraso</span> }
+    else { <span class="estado">Ativo</span> }
+    </td><td>@if (!e.DataDevolucao.HasValue) { <a asp-action="Devolver" asp-route-id="@e.Id">Devolver</a> }</td></tr>
+}
+</tbody></table></div>
+}

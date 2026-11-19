@@ -1,0 +1,11 @@
+@model Emprestimo
+@{ ViewData["Title"] = "Registar devolução"; }
+<h1>Registar devolução</h1>
+<dl><dt>Livro</dt><dd>@Model.Livro.Titulo</dd><dt>Leitor</dt><dd>@Model.Leitor.Nome (@Model.Leitor.Numero)</dd><dt>Data prevista</dt><dd>@Model.DataPrevista.ToString("dd/MM/yyyy")</dd></dl>
+@if (Model.DataDevolucao.HasValue)
+{ <p>Este empréstimo já foi devolvido em @Model.DataDevolucao.Value.ToString("dd/MM/yyyy").</p><a asp-action="Index">Voltar aos empréstimos</a> }
+else
+{
+<p>Ao confirmar, a devolução fica registada com a data de hoje e o saldo do livro aumenta uma unidade.</p>
+<form asp-action="Devolver" asp-route-id="@Model.Id" method="post" class="acoes"><button type="submit">Confirmar devolução</button><a asp-action="Index">Cancelar</a></form>
+}

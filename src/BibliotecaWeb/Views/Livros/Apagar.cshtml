@@ -1,0 +1,5 @@
+@model Livro
+@{ ViewData["Title"] = "Apagar livro"; }
+<h1>Apagar livro</h1><p>Pretende apagar <strong>@Model.Titulo</strong> (ISBN @Model.Isbn)?</p>
+<p>Livros com histórico de empréstimos não podem ser apagados.</p>
+<form asp-action="Apagar" asp-route-id="@Model.Id" method="post" class="acoes"><button class="perigo" type="submit">Confirmar eliminação</button><a asp-action="Index">Cancelar</a></form>

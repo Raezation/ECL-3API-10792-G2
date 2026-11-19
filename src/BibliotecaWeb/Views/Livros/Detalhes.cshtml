@@ -1,0 +1,7 @@
+@model Livro
+@{ ViewData["Title"] = "Detalhes do livro"; }
+<p class="sobretitulo">FICHA DO LIVRO</p><h1>@Model.Titulo</h1>
+<dl><dt>ISBN</dt><dd>@Model.Isbn</dd><dt>Autor</dt><dd>@Model.Autor</dd><dt>Categoria</dt><dd>@Model.Categoria</dd><dt>Exemplares disponíveis</dt><dd>@Model.ExemplaresDisponiveis</dd></dl>
+<div class="acoes"><a class="botao" asp-action="Editar" asp-route-id="@Model.Id">Editar livro</a>
+@if (Model.ExemplaresDisponiveis > 0) { <a class="botao secundario" asp-controller="Emprestimos" asp-action="Criar" asp-route-livroId="@Model.Id">Registar empréstimo</a> }
+<a asp-action="Index">Voltar ao catálogo</a></div>

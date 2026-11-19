@@ -1,0 +1,7 @@
+@model List<Leitor>
+@{ ViewData["Title"] = "Leitores"; }
+<div class="cabecalho"><div><p class="sobretitulo">BIBLIOTECA ESCOLAR</p><h1>Leitores</h1></div><a class="botao" asp-action="Criar">Novo leitor</a></div>
+<p>@Model.Count leitor(es) registado(s).</p>
+<div class="tabela"><table><thead><tr><th>Número</th><th>Nome</th><th>Email</th><th>Ações</th></tr></thead><tbody>
+@foreach (var l in Model) { <tr><td>@l.Numero</td><td>@l.Nome</td><td>@l.Email</td><td class="links"><a asp-action="Editar" asp-route-id="@l.Id">Editar</a><a asp-action="Apagar" asp-route-id="@l.Id">Apagar</a></td></tr> }
+</tbody></table></div>

@@ -1,0 +1,15 @@
+@model LivroForm
+@{ var editar = Model.Id != 0; ViewData["Title"] = editar ? "Editar livro" : "Novo livro"; }
+<h1>@ViewData["Title"]</h1>
+<p>O ISBN identifica o livro e não pode estar repetido. Pode usar espaços ou hífenes.</p>
+<form asp-action="@(editar ? "Editar" : "Criar")" asp-route-id="@Model.Id" method="post" class="formulario">
+    <div asp-validation-summary="All" class="validacao" role="alert"></div>
+    <input type="hidden" asp-for="Id" /><input type="hidden" asp-for="Versao" />
+    <div><label asp-for="Isbn"></label><input asp-for="Isbn" /><span asp-validation-for="Isbn"></span></div>
+    <div><label asp-for="Titulo"></label><input asp-for="Titulo" /><span asp-validation-for="Titulo"></span></div>
+    <div><label asp-for="Autor"></label><input asp-for="Autor" /><span asp-validation-for="Autor"></span></div>
+    <div><label asp-for="Categoria"></label><input asp-for="Categoria" /><span asp-validation-for="Categoria"></span></div>
+    <div><label asp-for="ExemplaresDisponiveis"></label><input asp-for="ExemplaresDisponiveis" min="0" max="10000" /><span asp-validation-for="ExemplaresDisponiveis"></span></div>
+    @if (editar) { <p class="nota">Altere a quantidade apenas para corrigir o inventário ou adicionar exemplares. Os empréstimos e as devoluções atualizam o saldo automaticamente.</p> }
+    <div class="acoes"><button type="submit">Guardar livro</button><a asp-action="Index">Cancelar</a></div>
+</form>

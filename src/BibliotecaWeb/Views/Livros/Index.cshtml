@@ -1,0 +1,21 @@
+@model List<Livro>
+@{ ViewData["Title"] = "Catálogo"; }
+<div class="cabecalho"><div><p class="sobretitulo">BIBLIOTECA ESCOLAR</p><h1>Catálogo de livros</h1></div><a class="botao" asp-action="Criar">Novo livro</a></div>
+<form method="get" asp-action="Index" class="pesquisa">
+    <label for="pesquisa">Pesquisar por título, autor ou categoria</label>
+    <div><input id="pesquisa" name="pesquisa" value="@ViewBag.Pesquisa" maxlength="160" placeholder="Ex.: Mistério" /><button type="submit">Pesquisar</button><a asp-action="Index">Limpar</a></div>
+</form>
+<p>@Model.Count livro(s) encontrado(s).</p>
+@if (Model.Count == 0) { <p>Não foram encontrados livros para esta pesquisa.</p> }
+else
+{
+<div class="tabela"><table>
+    <thead><tr><th>Título / ISBN</th><th>Autor</th><th>Categoria</th><th>Disponíveis</th><th>Ações</th></tr></thead>
+    <tbody>@foreach (var l in Model)
+    {
+        <tr><td><a asp-action="Detalhes" asp-route-id="@l.Id">@l.Titulo</a><small>@l.Isbn</small></td><td>@l.Autor</td><td>@l.Categoria</td><td><span class="@(l.ExemplaresDisponiveis == 0 ? "estado alerta" : "estado")">@l.ExemplaresDisponiveis</span></td>
+        <td class="links"><a asp-action="Editar" asp-route-id="@l.Id">Editar</a><a asp-action="Apagar" asp-route-id="@l.Id">Apagar</a>
+        @if (l.ExemplaresDisponiveis > 0) { <a asp-controller="Emprestimos" asp-action="Criar" asp-route-livroId="@l.Id">Emprestar</a> }</td></tr>
+    }</tbody>
+</table></div>
+}

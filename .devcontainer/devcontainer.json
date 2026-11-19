@@ -1,0 +1,10 @@
+{
+  "name": "Biblioteca Escolar - Grupo 2",
+  "image": "mcr.microsoft.com/devcontainers/dotnet:1-8.0-bookworm",
+  "forwardPorts": [5082],
+  "portsAttributes": {
+    "5082": { "label": "Biblioteca Escolar", "onAutoForward": "notify", "visibility": "private" }
+  },
+  "containerEnv": { "TZ": "Europe/Lisbon" },
+  "postCreateCommand": "dotnet tool restore && dotnet restore"
+}

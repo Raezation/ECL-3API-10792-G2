@@ -1,0 +1,106 @@
+{
+  "contadores": {
+    "total": "21",
+    "executed": "21",
+    "passed": "21",
+    "failed": "0",
+    "error": "0",
+    "timeout": "0",
+    "aborted": "0",
+    "inconclusive": "0",
+    "passedButRunAborted": "0",
+    "notRunnable": "0",
+    "notExecuted": "0",
+    "disconnected": "0",
+    "warning": "0",
+    "completed": "0",
+    "inProgress": "0",
+    "pending": "0"
+  },
+  "testes": [
+    {
+      "nome": "BibliotecaWeb.Tests.IntegracaoTests.EmprestimoSemStock_BloqueadoSemAlterarDados",
+      "estado": "Passed"
+    },
+    {
+      "nome": "BibliotecaWeb.Tests.IntegracaoTests.DadosIniciais_CincoRegistosPorEntidade",
+      "estado": "Passed"
+    },
+    {
+      "nome": "BibliotecaWeb.Tests.IntegracaoTests.Pesquisa_PorTituloAutorECategoria(pesquisa: \"Tecnologia\", titulo: \"Viagem ao Mundo Digital\")",
+      "estado": "Passed"
+    },
+    {
+      "nome": "BibliotecaWeb.Tests.IntegracaoTests.Csrf_PedidoSemTokenERecusado",
+      "estado": "Passed"
+    },
+    {
+      "nome": "BibliotecaWeb.Tests.IntegracaoTests.Livros_CRUDCompletoEPersistencia",
+      "estado": "Passed"
+    },
+    {
+      "nome": "BibliotecaWeb.Tests.IntegracaoTests.LivroInvalido_NaoEGuardado(isbn: \"9780000000057\", titulo: \"Teste\", stock: -1)",
+      "estado": "Passed"
+    },
+    {
+      "nome": "BibliotecaWeb.Tests.IntegracaoTests.IsbnDuplicado_NormalizaEspacosEHifenes",
+      "estado": "Passed"
+    },
+    {
+      "nome": "BibliotecaWeb.Tests.IntegracaoTests.DoisPedidosSimultaneos_NaoEmprestamOMesmoExemplar",
+      "estado": "Passed"
+    },
+    {
+      "nome": "BibliotecaWeb.Tests.IntegracaoTests.RegistosInexistentes_Devolvem404",
+      "estado": "Passed"
+    },
+    {
+      "nome": "BibliotecaWeb.Tests.IntegracaoTests.Pesquisa_PorTituloAutorECategoria(pesquisa: \"Pedro Lopes\", titulo: \"Programar o Futuro\")",
+      "estado": "Passed"
+    },
+    {
+      "nome": "BibliotecaWeb.Tests.IntegracaoTests.LivroInvalido_NaoEGuardado(isbn: \"9780000000057\", titulo: \"\", stock: 2)",
+      "estado": "Passed"
+    },
+    {
+      "nome": "BibliotecaWeb.Tests.IntegracaoTests.EliminarComHistorico_PreservaLivroELeitor",
+      "estado": "Passed"
+    },
+    {
+      "nome": "BibliotecaWeb.Tests.IntegracaoTests.EdicaoAntiga_NaoAnulaEmprestimo",
+      "estado": "Passed"
+    },
+    {
+      "nome": "BibliotecaWeb.Tests.IntegracaoTests.Leitores_CriarEditarApagar",
+      "estado": "Passed"
+    },
+    {
+      "nome": "BibliotecaWeb.Tests.IntegracaoTests.EmprestimoEDevolucao_AtualizamStockUmaVez",
+      "estado": "Passed"
+    },
+    {
+      "nome": "BibliotecaWeb.Tests.IntegracaoTests.Leitor_NumeroDuplicadoEEmailInvalido",
+      "estado": "Passed"
+    },
+    {
+      "nome": "BibliotecaWeb.Tests.IntegracaoTests.BaseDeDados_ImpoeUnicidadeEChavesEstrangeiras",
+      "estado": "Passed"
+    },
+    {
+      "nome": "BibliotecaWeb.Tests.IntegracaoTests.LivroInvalido_NaoEGuardado(isbn: \"9780000000058\", titulo: \"Teste\", stock: 2)",
+      "estado": "Passed"
+    },
+    {
+      "nome": "BibliotecaWeb.Tests.IntegracaoTests.Pesquisa_PorTituloAutorECategoria(pesquisa: \"MISTÉRIOS\", titulo: \"A Rede dos Mistérios\")",
+      "estado": "Passed"
+    },
+    {
+      "nome": "BibliotecaWeb.Tests.IntegracaoTests.DatasInvalidas_EReferenciasInexistentes_Bloqueadas",
+      "estado": "Passed"
+    },
+    {
+      "nome": "BibliotecaWeb.Tests.IntegracaoTests.Atrasos_ConsultaRealExcluiDevolvidosEPrazoDeHoje",
+      "estado": "Passed"
+    }
+  ]
+}
